@@ -204,8 +204,8 @@
     <div id="scoreboard" aria-live="polite" aria-atomic="true">Счет: 0</div>
     <canvas id="game-canvas" width="350" height="420" aria-label="Поле для игры Змейка" role="img" tabindex="0"></canvas>
     <div id="controls" aria-label="Управление игрой">
-      <button class="control-button" aria-label="Вверх" data-dir="up" type="button">▲</button>
       <button class="control-button" aria-label="Влево" data-dir="left" type="button">◄</button>
+	  <button class="control-button" aria-label="Вверх" data-dir="up" type="button">▲</button>
       <button class="control-button" aria-label="Вниз" data-dir="down" type="button">▼</button>
       <button class="control-button" aria-label="Вправо" data-dir="right" type="button">►</button>
     </div>
@@ -253,7 +253,7 @@
     snake = [
       {x: Math.floor(GRID_COLS / 2), y: Math.floor(GRID_ROWS / 2)},
       {x: Math.floor(GRID_COLS / 2) - 1, y: Math.floor(GRID_ROWS / 2)},
-      {x: Math.floor(GRID_COLS / 2) - 2, y: Math.floor(GRID_ROWS / 2)},
+
     ];
     direction = 'right';
     nextDirection = 'right';
@@ -266,7 +266,7 @@
       placeFood();
     }
     if(loopId) clearInterval(loopId);
-    loopId = setInterval(gameLoop, 1000 / 7.5);
+    loopId = setInterval(gameLoop, 1000 / 6.5);
   }
 
   function updateScore() {
@@ -397,7 +397,7 @@
     ctx.shadowBlur = 15;
     ctx.fillText('ИГРА ОКОНЧЕНА', canvas.width/2, canvas.height/2 - 20);
     ctx.shadowBlur = 0;
-    ctx.font = '18px Segoe UI, sans-serif';
+    ctx.font = '16px Segoe UI, sans-serif';
     ctx.fillStyle = '#e0e0e0';
     ctx.fillText('Нажмите Перезапустить чтобы играть снова', canvas.width/2, canvas.height/2 + 20);
   }
